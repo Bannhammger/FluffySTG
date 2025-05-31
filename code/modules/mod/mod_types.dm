@@ -245,6 +245,7 @@
 		/obj/item/mod/module/dna_lock,
 		/obj/item/mod/module/hat_stabilizer/syndicate,
 		/obj/item/mod/module/quick_cuff,
+		/obj/item/mod/module/headprotector,
 	)
 	default_pins = list(
 		/obj/item/mod/module/armor_booster,
@@ -266,6 +267,7 @@
 		/obj/item/mod/module/dna_lock,
 		/obj/item/mod/module/hat_stabilizer/syndicate,
 		/obj/item/mod/module/quick_cuff,
+		/obj/item/mod/module/headprotector,
 	)
 	default_pins = list(
 		/obj/item/mod/module/armor_booster,
@@ -288,6 +290,7 @@
 		/obj/item/mod/module/flashlight,
 		/obj/item/mod/module/hat_stabilizer/syndicate,
 		/obj/item/mod/module/quick_cuff,
+		/obj/item/mod/module/headprotector,
 	)
 	default_pins = list(
 		/obj/item/mod/module/armor_booster,
@@ -325,6 +328,7 @@
 		/obj/item/mod/module/flashlight,
 		/obj/item/mod/module/hat_stabilizer/syndicate,
 		/obj/item/mod/module/quick_cuff,
+		/obj/item/mod/module/headprotector,
 	)
 	default_pins = list(
 		/obj/item/mod/module/armor_booster,
@@ -345,6 +349,7 @@
 		/obj/item/mod/module/hat_stabilizer/syndicate,
 		/obj/item/mod/module/flamethrower,
 		/obj/item/mod/module/quick_cuff,
+		/obj/item/mod/module/headprotector,
 	)
 	default_pins = list(
 		/obj/item/mod/module/armor_booster,
@@ -385,6 +390,7 @@
 		/obj/item/mod/module/hat_stabilizer/syndicate,
 		/obj/item/mod/module/tether,
 		/obj/item/mod/module/quick_cuff,
+		/obj/item/mod/module/headprotector,
 	)
 
 /obj/item/mod/control/pre_equipped/enchanted
@@ -396,6 +402,7 @@
 		/obj/item/mod/module/energy_shield/wizard,
 		/obj/item/mod/module/emp_shield/advanced,
 		/obj/item/mod/module/quick_cuff,
+		/obj/item/mod/module/headprotector,
 	)
 
 /obj/item/mod/control/pre_equipped/ninja
@@ -411,6 +418,7 @@
 		/obj/item/mod/module/dna_lock/reinforced,
 		/obj/item/mod/module/emp_shield/pulse,
 		/obj/item/mod/module/quick_cuff,
+		/obj/item/mod/module/headprotector,
 	)
 	default_pins = list(
 		/obj/item/mod/module/stealth/ninja,
@@ -447,6 +455,7 @@
 		/obj/item/mod/module/jetpack/advanced,
 		/obj/item/mod/module/jump_jet,
 		/obj/item/mod/module/flashlight,
+		/obj/item/mod/module/headprotector,
 	)
 	default_pins = list(
 		/obj/item/mod/module/armor_booster,
@@ -466,6 +475,7 @@
 		/obj/item/mod/module/magnetic_harness,
 		/obj/item/mod/module/flashlight,
 		/obj/item/mod/module/quick_cuff,
+		/obj/item/mod/module/headprotector,
 	)
 	/// The insignia type, insignias show what sort of member of the ERT you're dealing with.
 	var/insignia_type = /obj/item/mod/module/insignia
@@ -517,6 +527,7 @@
 		/obj/item/mod/module/magnetic_harness,
 		/obj/item/mod/module/flashlight,
 		/obj/item/mod/module/quick_cuff,
+		/obj/item/mod/module/headprotector,
 	)
 
 /obj/item/mod/control/pre_equipped/responsory/inquisitory/syndie
@@ -537,6 +548,7 @@
 		/obj/item/mod/module/visor/night,
 		/obj/item/mod/module/shove_blocker,
 		/obj/item/mod/module/noslip,
+		/obj/item/mod/module/headprotector,
 	)
 
 /obj/item/mod/control/pre_equipped/responsory/inquisitory/commander
@@ -567,6 +579,7 @@
 		/obj/item/mod/module/magnetic_harness,
 		/obj/item/mod/module/jetpack,
 		/obj/item/mod/module/quick_cuff,
+		/obj/item/mod/module/headprotector,
 	)
 	default_pins = list(
 		/obj/item/mod/module/jetpack,
@@ -581,6 +594,7 @@
 		/obj/item/mod/module/magnetic_harness,
 		/obj/item/mod/module/jetpack,
 		/obj/item/mod/module/quick_cuff,
+		/obj/item/mod/module/headprotector,
 	)
 
 /obj/item/mod/control/pre_equipped/corporate
@@ -593,6 +607,7 @@
 		/obj/item/mod/module/hat_stabilizer,
 		/obj/item/mod/module/magnetic_harness,
 		/obj/item/mod/module/emp_shield/advanced,
+		/obj/item/mod/module/headprotector,
 	)
 
 /obj/item/mod/control/pre_equipped/chrono
@@ -607,6 +622,7 @@
 		/obj/item/mod/module/rewinder,
 		/obj/item/mod/module/tem,
 		/obj/item/mod/module/anomaly_locked/kinesis/plus,
+		/obj/item/mod/module/headprotector,
 	)
 	default_pins = list(
 		/obj/item/mod/module/timestopper,
