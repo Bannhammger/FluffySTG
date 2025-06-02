@@ -9,22 +9,33 @@
 	if(!ishuman(target) || !target.dna?.species || target.dna.species.id != SPECIES_SYNTH)
 		return ELEMENT_INCOMPATIBLE
 
-	RegisterSignal(target, COMSIG_HUMAN_LIFE, PROC_REF(on_life))
+	RegisterSignal(target, COMSIG_LIVING_LIFE, PROC_REF(on_life))
 	RegisterSignal(target, COMSIG_LIVING_DEATH, PROC_REF(on_death))
 	RegisterSignal(target, COMSIG_LIVING_REVIVE, PROC_REF(on_revive))
 
+	// Initialize HUD data if not already present
+	if(!target.hud_list[DIAG_HUD])
+		target.hud_list[DIAG_HUD] = new /image/hud_overlay('icons/mob/huds/hud.dmi', target, "huddiagfull")
+
+	// Add to diagnostic HUD viewers
 	var/datum/atom_hud/data/diagnostic/diag_hud = GLOB.huds[DATA_HUD_DIAGNOSTIC]
-	diag_hud.add_atom_to_hud(target)
+	diag_hud.add_to_hud(target)
 	diag_hud_users += target
+
+	// Give diagnostic HUD trait
+	ADD_TRAIT(target, TRAIT_DIAGNOSTIC_HUD, SPECIES_TRAIT)
+
 	update_synth_hud(target)
 
 /datum/element/synthetic_diagnosis/Detach(mob/living/carbon/human/source)
 	. = ..()
-	UnregisterSignal(source, list(COMSIG_HUMAN_LIFE, COMSIG_LIVING_DEATH, COMSIG_LIVING_REVIVE))
+	UnregisterSignal(source, list(COMSIG_LIVING_LIFE, COMSIG_LIVING_DEATH, COMSIG_LIVING_REVIVE))
 
 	var/datum/atom_hud/data/diagnostic/diag_hud = GLOB.huds[DATA_HUD_DIAGNOSTIC]
-	diag_hud.remove_atom_from_hud(source)
+	diag_hud.remove_from_hud(source)
 	diag_hud_users -= source
+
+	REMOVE_TRAIT(source, TRAIT_DIAGNOSTIC_HUD, SPECIES_TRAIT)
 
 /datum/element/synthetic_diagnosis/proc/on_life(mob/living/carbon/human/source)
 	SIGNAL_HANDLER
@@ -43,6 +54,9 @@
 		return
 
 	var/image/holder = synth.hud_list[DIAG_HUD]
+	holder.layer = HUD_LAYER
+	holder.plane = HUD_PLANE
+
 	if(synth.stat == DEAD)
 		holder.icon_state = "huddiagdead"
 		return
@@ -66,10 +80,14 @@
 	// Add charge indicator overlay
 	var/image/charge_overlay = image('icons/mob/huds/hud.dmi', synth, "huddiag_power")
 	charge_overlay.alpha = charge_percent * 255 / 100
+	charge_overlay.layer = HUD_LAYER
+	charge_overlay.plane = HUD_PLANE
 	holder.overlays += charge_overlay
 
 	// Add warning overlay for low charge
 	if(charge_percent < 50)
 		var/image/warning_overlay = image('icons/mob/huds/hud.dmi', synth, "huddiag_lowpower")
 		warning_overlay.alpha = 180
+		warning_overlay.layer = HUD_LAYER
+		warning_overlay.plane = HUD_PLANE
 		holder.overlays += warning_overlay
