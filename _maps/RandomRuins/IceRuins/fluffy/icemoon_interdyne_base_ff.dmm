@@ -4,7 +4,7 @@
 /area/template_noop)
 "ab" = (
 /turf/open/lava/plasma/ice_moon,
-/area/icemoon/underground/explored)
+/area/icemoon/underground/explored)121
 "ac" = (
 /turf/closed/mineral/random/snow/underground,
 /area/icemoon/underground/explored)
