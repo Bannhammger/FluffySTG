@@ -1,9 +1,8 @@
 //Cyberpunk implants can be bought only from restricted consoles
-/datum/armament_entry/company_import/deforest/cyber_implants
-	restricted = TRUE
+/datum/supply_pack/companies/deforest/cyber_implants
 
 //And emag-cyberdeck only from contraband. Still easy to get.
-/datum/armament_entry/company_import/deforest/cyber_implants/hackerman
+/datum/supply_pack/companies/deforest/cyber_implants/hackerman
 	contraband = TRUE
 
 //No free emag from RnD.
