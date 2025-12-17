@@ -366,8 +366,8 @@ GLOBAL_LIST_INIT(unrecommended_builds, list(
 			var/sendable_string = jointext(concatables, " ")
 
 			message_admins(sendable_string)
-			log_admin_private(strip_html_full(sendable_string, MAX_MESSAGE_LEN), TRUE)
 
+			log_admin_private(strip_html_full(sendable_string, MAX_MESSAGE_LEN), TRUE)
 	. = ..() //calls mob.Login()
 
 	// Admin Verbs need the client's mob to exist. Must be after ..()
