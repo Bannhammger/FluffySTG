@@ -83,6 +83,8 @@
 			RESKIN_WORN_ICON_STATE = "meson_scouter"
 		),
 	)
+/obj/item/clothing/glasses/meson/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/meson, blacklisted_subtypes = subtypesof(/datum/atom_skin/meson/engine))
 
 /obj/item/clothing/glasses/meson/night
 	can_reskin = FALSE
@@ -102,6 +104,9 @@
 		),
 	)
 
+/obj/item/clothing/glasses/meson/night/setup_reskins()
+	return
+
 /obj/item/clothing/glasses/meson/gar
 	can_reskin = FALSE
 /obj/item/clothing/glasses/meson/engine/tray/Initialize(mapload)
@@ -119,6 +124,9 @@
 			RESKIN_WORN_ICON = 'modular_nova/modules/meson_scouter/icons/meson-scouter_mob.dmi'
 		),
 	)
+
+/obj/item/clothing/glasses/meson/gar/setup_reskins()
+	return
 
 /datum/atom_skin/meson/engine
 	abstract_type = /datum/atom_skin/meson/engine
@@ -182,4 +190,6 @@
 			RESKIN_WORN_ICON = 'modular_nova/modules/meson_scouter/icons/meson-scouter_mob.dmi'
 		),
 	)
+/obj/item/clothing/glasses/meson/engine/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/meson/engine)
 
