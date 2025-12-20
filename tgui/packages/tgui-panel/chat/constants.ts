@@ -52,6 +52,16 @@ type MessageType = {
   admin: boolean;
 }>;
 
+type MessageType = {
+  type: string;
+  name: string;
+  description: string;
+} & Partial<{
+  selector: string;
+  important: boolean;
+  admin: boolean;
+}>;
+
 // Metadata for each message type
 export const MESSAGE_TYPES: MessageType[] = [
   // Always-on types
