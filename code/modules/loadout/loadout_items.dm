@@ -294,9 +294,14 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 		// NOVA EDIT ADDITION END
 	if((loadout_flags & LOADOUT_FLAG_ALLOW_RESKIN) && item_details?[INFO_RESKIN])
 		var/skin_chosen = item_details[INFO_RESKIN]
-		if(skin_chosen in equipped_item.unique_reskin)
-			equipped_item.current_skin = skin_chosen
-			equipped_item.icon_state = equipped_item.unique_reskin[skin_chosen]
+		var/list/atom_skins = get_atom_skins()
+		for(var/datum/atom_skin/skin_path as anything in valid_subtypesof(reskin_datum))
+			if(skin_path::preview_name != skin_chosen)
+				continue
+			if(skin_path::preview_name != skin_chosen)
+				continue
+			var/datum/atom_skin/skin_instance = atom_skins[skin_path]
+			skin_instance.apply(equipped_item)
 			if(istype(equipped_item, /obj/item/clothing/accessory))
 				// Snowflake handing for accessories, because we need to update the thing it's attached to instead
 				if(isclothing(equipped_item.loc))
@@ -425,6 +430,12 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 		return null
 
 	var/list/reskins = list()
+	var/list/atom_skins = get_atom_skins()
+	var/list/reskin_choices
+	if(reskin_datum::allow_all_subtypes_in_loadout)
+		reskin_choices = valid_subtypesof(reskin_datum)
+	else
+		reskin_choices = valid_direct_subtypesof(reskin_datum)
 
 	for(var/skin in cached_reskin_options)
 		UNTYPED_LIST_ADD(reskins, list(
