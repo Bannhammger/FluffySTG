@@ -42,7 +42,6 @@
 	new_icon = 'icons/obj/clothing/glasses.dmi'
 	new_icon_state = "trayson-"
 	new_worn_icon = 'icons/mob/clothing/eyes.dmi'
-	species_exception = list() // FF ADDITION
 
 /datum/atom_skin/meson/engine/scouter
 	preview_name = "Engine Scouter"
@@ -52,5 +51,7 @@
 
 /obj/item/clothing/glasses/meson/engine/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/meson/engine)
-	species_exception = list() // FF ADDITION
 
+
+	species_exception = list() // FF ADDITION
+	species_exception = list() // FF ADDITION
