@@ -89,6 +89,16 @@
 
 /datum/species/nabber/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
 	. = ..()
+	// Cleanup any temporary items we equip so they don't remain in C.contents
+	// (gas_placeholder legcuffs and related implants can keep references and block GC)
+	for(var/atom/A in C.contents)
+		if(istype(A, /obj/item/restraints/legcuffs/gas_placeholder) || istype(A, /obj/item/implant/gas_sol_speaker/))
+			// try to unequip first if possible; then force-delete to ensure no lingering refs
+			if(istype(A, /obj/item/restraints/legcuffs))
+				C.uncuff() // best-effort; keep call so normal equip cleanup runs
+			if(!QDELETED(A))
+				qdel(A, force = TRUE)
+
 	arms.Destroy()
 	camouflage.Destroy()
 	threat_mod.Destroy()
